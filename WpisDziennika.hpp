@@ -2,34 +2,39 @@
 #define WPIS_DZIENNIKA_HPP
 #include <iostream>
 #include <string>
-using namespace std;
 
 class WpisDziennika {
 private:
     int numerDniaCyklu;
     int poziomEnergii;
     int poziomStresu;
-    string nastroj;
-    string objawy;
-    string notatka;
-public: // konstruktor domyślny, parametryczny
+    std::string nastroj;
+    std::string objawy;
+    std::string notatka;
+
+public:
+    // Konstruktor domyślny i parametryczny
     WpisDziennika();
-    WpisDziennika(int dzien, int energia, int stres, string nastroj, string objawy, string notatka);
+    WpisDziennika(int dzien, int energia, int stres, std::string nastroj, std::string objawy, std::string notatka);
+
     // pobieranie danych
     int getNumerDniaCyklu() const;
     int getPoziomEnergii() const;
     int getPoziomStresu() const;
-    string getNastroj() const;
-    string getObjawy() const;
-    string getNotatka() const;
+    std::string getNastroj() const;
+    std::string getObjawy() const;
+    std::string getNotatka() const;
+
     // ustawianie danych
     void setNumerDniaCyklu(int dzien);
     void setPoziomEnergii(int energia);
     void setPoziomStresu(int stres);
-    void setNastroj(string nastroj);
-    void setObjawy(string objawy);
-    void setNotatka(string notatka);
+    void setNastroj(std::string nastroj);
+    void setObjawy(std::string objawy);
+    void setNotatka(std::string notatka);
 
-    friend ostream& operator<<(ostream& os, const WpisDziennika& wpis);
+    // przeładowany operator do wypisywania wpisu strumieniowo
+    friend std::ostream& operator<<(std::ostream& os, const WpisDziennika& wpis);
 };
+
 #endif

@@ -1,18 +1,18 @@
 #ifndef FAZA_LUTEALNA_HPP
 #define FAZA_LUTEALNA_HPP
 #include "FazaCyklu.hpp"
-using namespace std;
+#include <string>
 
 class FazaLutealna : public FazaCyklu {
 public:
-    string getNazwaFazy() const override;
-    string getRekomendowanaDieta() const override;
-    string getRekomendowanyTrening() const override;
-    string getOpisHormonalny() const override;
-    string getProfilProduktywnosci() const override;
-    string getZiola() const override;
-    string getStylRegeneracji() const override;
-    string getHolistyczneWsparcie() const override;
+    std::string getNazwaFazy() const override;
+    std::string getRekomendowanaDieta() const override;
+    std::string getRekomendowanyTrening() const override;
+    std::string getOpisHormonalny() const override;
+    std::string getProfilProduktywnosci() const override;
+    std::string getZiola() const override;
+    std::string getStylRegeneracji() const override;
+    std::string getHolistyczneWsparcie() const override;
 };
 
 #endif
