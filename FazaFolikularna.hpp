@@ -13,6 +13,8 @@ public:
     std::string getZiola() const override;
     std::string getStylRegeneracji() const override;
     std::string getHolistyczneWsparcie() const override;
+
+    std::string getWsparcieWyciszajace(const WpisDziennika& wpis) const override;
 };
 
-#endif // FAZA_FOLIKULARNA_HPP
+#endif

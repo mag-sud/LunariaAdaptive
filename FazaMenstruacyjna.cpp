@@ -5,7 +5,7 @@ std::string FazaMenstruacyjna::getNazwaFazy() const {
 }
 
 std::string FazaMenstruacyjna::getRekomendowanaDieta() const {
-    return "Ciepłe, gotowane i łatwostrawne posiłki (np. buliony, zupy krem, kleiki, pieczone lub gotowane warzywa korzeniowe). Unikaj surowych sałatek, zimnych potraw i napojów, które wychładzają organizm od środka.";
+    return "Ciepłe, gotowane i łatwostrawne posiłki (np. buliony, zupy krem, kleiki, pieczone lub gotowane warzywa korzeniowe). Unikaj surowych sałatek, zimnych potraw i napojów, które wychładzają organizm od środka. Zadbaj o odpowiednie uzupełnienie żelaza.";
 }
 
 std::string FazaMenstruacyjna::getRekomendowanyTrening() const {
@@ -29,5 +29,11 @@ std::string FazaMenstruacyjna::getStylRegeneracji() const {
 }
 
 std::string FazaMenstruacyjna::getHolistyczneWsparcie() const {
-    return "Ochrona dolnej partii pleców i brzucha przed wychłodzeniem. Wieczorne, ciepłe kąpiele stóp z dodatkiem imbiru lub soli, które pomagają rozproszyć zastój krwi, ogrzewają meridiany i ułatwiają zasypianie.";
+    return "Ochrona dolnej partii pleców i brzucha przed wychłodzeniem. Wieczorne, ciepłe kąpiele stóp z dodatkiem imbiru lub soli, które pomagają rozproszyć zastój krwi, ogrzewają meridiany i ułatwiają zasypianie. Akceptacja potrzeby zwolnienia tempa i wsłuchanie się w sygnały ciała.";
+}
+std::string FazaMenstruacyjna::getWsparcieWyciszajace(const WpisDziennika& wpis) const {
+    if (wpis.objawyMenstruacyjne() || wpis.getPoziomStresu() >= 4) {
+        return "Masz objawy menstruacyjne i podwyższony stres. Zastosuj ciepły kompres, połóż się wygodnie, zrezygnuj z obowiązków niecierpiących zwłoki i sięgnij po napar rozgrzewający.";
+    }
+    return "Pamiętaj o łagodnym traktowaniu siebie. Ciepła kąpiel, herbata z imbirem i spokojna muzyka pomogą Ci przetrwać ten czas w komforcie.";
 }

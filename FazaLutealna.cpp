@@ -29,5 +29,11 @@ std::string FazaLutealna::getStylRegeneracji() const {
 }
 
 std::string FazaLutealna::getHolistyczneWsparcie() const {
-    return "Unikanie zimnych, surowych pokarmów na rzecz ciepłych, pieczonych i gęstych dań, które uziemiają i dają poczucie wewnętrznego bezpieczeństwa.";
+    return "Budowanie wewnętrznej wyrozumiałości i dbanie o komfort psychiczny. Unikanie zimnych, surowych pokarmów na rzecz ciepłych, pieczonych i gęstych dań, które uziemiają i dają poczucie wewnętrznego bezpieczeństwa.";
+}
+std::string FazaLutealna::getWsparcieWyciszajace(const WpisDziennika& wpis) const {
+    if (wpis.getPoziomStresu() >= 4 || wpis.getPoziomEnergii() <= 2) {
+        return "Faza lutealna bywa trudna, a Twój dzisiejszy wpis wskazuje na duże obciążenie. Ogranicz kofeinę, zaparz melisę, zrób sobie wieczór bez ekranów i odpuść wszystko, co może poczekać.";
+    }
+    return "Zadbaj dzisiaj o łagodne tempo. Ciepła kąpiel, spacery na świeżym powietrzu i unikanie dodatkowego stresu pomogą Ci utrzymać równowagę emocjonalną";
 }

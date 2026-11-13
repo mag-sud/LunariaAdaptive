@@ -1,6 +1,7 @@
 #ifndef FAZA_CYKLU_HPP
 #define FAZA_CYKLU_HPP
 #include <string>
+#include "WpisDziennika.hpp"
 
 // interfejs polimorficzny dla faz cyklu
 class FazaCyklu {
@@ -17,6 +18,11 @@ public:
     virtual std::string getZiola() const = 0;
     virtual std::string getStylRegeneracji() const = 0;
     virtual std::string getHolistyczneWsparcie() const = 0;
+    virtual std::string getWsparcieWyciszajace() const = 0;
+
+    // wersja adaptacyjna – przyjmuje dzisiejszy wpis z dziennika, dzięki czemu porada reaguje na bieżący stres i energię
+    virtual std::string getWsparcieWyciszajace(const WpisDziennika& wpis) const = 0;
+
 };
 
 #endif
