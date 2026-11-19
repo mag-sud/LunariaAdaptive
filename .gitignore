@@ -1,0 +1,11 @@
+# pliki binarne i build
+*.exe
+*.o
+build/
+
+# dane użytkowniczki
+lunaria_dane.txt
+lunaria_dane.txt.uszkodzony
+
+# edytor
+.vscode/
