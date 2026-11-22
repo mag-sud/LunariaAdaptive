@@ -1,8 +1,7 @@
 #include "FazaFolikularna.hpp"
 
-std::string FazaFolikularna::getNazwaFazy() const {
-    return "🌒 Faza Folikularna | Księżyc Przybywający (narodziny energii)";
-}
+// konstruktor pochodn wywołujący konstruktor bazy
+FazaFolikularna::FazaFolikularna() : FazaCyklu("🌒 Faza Folikularna | Księżyc Przybywający (narodziny energii)") {}
 
 std::string FazaFolikularna::getRekomendowanaDieta() const {
     return "Lżejsze, świeże posiłki bogate w białko, kiełki, warzywa liściaste oraz produkty wspierające odbudowę żelaza i mikroelementów po krwawieniu.";

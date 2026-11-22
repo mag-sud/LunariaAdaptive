@@ -1,8 +1,6 @@
 #include "FazaOwulacyjna.hpp"
 
-std::string FazaOwulacyjna::getNazwaFazy() const {
-    return "🌕 Faza Owulacyjna | Pełnia Księżyca (szczyt magnetyzmu i ekspresji)";
-}
+FazaOwulacyjna::FazaOwulacyjna() : FazaCyklu("🌕 Faza Owulacyjna | Pełnia Księżyca (szczyt magnetyzmu i ekspresji)") {}
 
 std::string FazaOwulacyjna::getRekomendowanaDieta() const {
     return "Posiłki wspierające pracę wątroby w metaboliźmie estrogenów (warzywa krzyżowe), bogate w antyoksydanty owoce jagodowe chroniące komórki oraz błonnik. Lekkie i odżywcze posiłki.";

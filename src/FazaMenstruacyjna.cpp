@@ -1,8 +1,6 @@
 #include "FazaMenstruacyjna.hpp"
 
-std::string FazaMenstruacyjna::getNazwaFazy() const {
-    return "🌑 Faza Menstruacyjna | Nów Księżyca (czas introspekcji i azylu)";
-}
+FazaMenstruacyjna::FazaMenstruacyjna() : FazaCyklu("🌑 Faza Menstruacyjna | Nów Księżyca (czas introspekcji i azylu)") {}
 
 std::string FazaMenstruacyjna::getRekomendowanaDieta() const {
     return "Ciepłe, gotowane i łatwostrawne posiłki (np. buliony, zupy krem, kleiki, pieczone lub gotowane warzywa korzeniowe). Unikaj surowych sałatek, zimnych potraw i napojów, które wychładzają organizm od środka. Zadbaj o odpowiednie uzupełnienie żelaza.";

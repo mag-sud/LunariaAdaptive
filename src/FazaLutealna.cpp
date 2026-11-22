@@ -1,8 +1,6 @@
 #include "FazaLutealna.hpp"
 
-std::string FazaLutealna::getNazwaFazy() const {
-    return "🌘 Faza Lutealna | Księżyc Ubywający (wyciszenie)";
-}
+FazaLutealna::FazaLutealna() : FazaCyklu("🌘 Faza Lutealna | Księżyc Ubywający (wyciszenie)") {}
 
 std::string FazaLutealna::getRekomendowanaDieta() const {
     return "Ciepłe, sycące posiłki bogate w złożone węglowodany oraz magnez (pełnoziarniste produkty, korzeniowe warzywa), które stabilizują poziom glukozy we krwi i zapobiegają nagłym zachciankom na słodycze.";

@@ -5,7 +5,7 @@
 
 class FazaLutealna : public FazaCyklu {
 public:
-    std::string getNazwaFazy() const override;
+    FazaLutealna();
     std::string getRekomendowanaDieta() const override;
     std::string getRekomendowanyTrening() const override;
     std::string getOpisHormonalny() const override;
