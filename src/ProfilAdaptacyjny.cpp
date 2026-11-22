@@ -146,7 +146,8 @@ OcenaStresu ProfilAdaptacyjny::ocenStres(int dzienCyklu) const {
 
     for (const auto& cykl : historia.getCykle()) {
         for (const auto& w : cykl.getWpisy()) {
-            if (std::abs(w.getNumerDniaCyklu() - dzienCyklu) <= OKNO_DNI_STRESU) {
+            bool toDzisiejszyWpis = (&cykl == &historia.biezacyCykl() && w.getNumerDniaCyklu() == dzienCyklu);
+            if (!toDzisiejszyWpis && std::abs(w.getNumerDniaCyklu() - dzienCyklu) <= OKNO_DNI_STRESU) {
                 sumaHistoryczna += w.getPoziomStresu();
                 ocena.liczbaProbek++;
             }

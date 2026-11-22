@@ -107,13 +107,22 @@ void HistoriaUzytkowniczki::usunWpis(int cykl, int dzien) {
 
 void HistoriaUzytkowniczki::ustawDateStartuBiezacego(const Kalendarz& data) {
     Cykl& biezacy = cykle.back();
-    biezacy.ustawDateStartu(data);
+    Cykl* poprzedni = (cykle.size() >= 2) ? &cykle[cykle.size() - 2] : nullptr;
+    int nowaDlugoscPoprzedniego = 0;
 
-    if (cykle.size() >= 2) {
-        Cykl& poprzedni = cykle[cykle.size() - 2];
-        if (poprzedni.czyMaDateStartu()) {
-            poprzedni.zakoncz(data - poprzedni.getDataStartu());
+    // najpierw sprawdzamy wszystko, niczego jeszcze nie zmieniając
+    if (poprzedni != nullptr && poprzedni->czyMaDateStartu()) {
+        nowaDlugoscPoprzedniego = data - poprzedni->getDataStartu();
+        if (nowaDlugoscPoprzedniego < 1 || nowaDlugoscPoprzedniego < poprzedni->ostatniDzien()) {
+            throw std::invalid_argument(
+                "Ta data skróci poprzedni cykl do " + std::to_string(nowaDlugoscPoprzedniego) +
+                " dni, a ma on wpisy do dnia " + std::to_string(poprzedni->ostatniDzien())
+            );
         }
+    }
+    biezacy.ustawDateStartu(data);
+    if (poprzedni != nullptr && poprzedni->czyMaDateStartu()) {
+        poprzedni->zakoncz(nowaDlugoscPoprzedniego);
     }
 }
 

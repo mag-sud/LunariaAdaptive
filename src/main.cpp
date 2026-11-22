@@ -105,12 +105,12 @@ void pokazRekomendacje(int dzien, const Kalendarz& data, const ProfilAdaptacyjny
         if (stres.maWpisDzisiaj) {
             cout << "Dzisiejszy wpis pokazuje stres na poziomie " << stres.stresDzisiaj << "/5.\n";
         }
-        cout << faza->getWsparcieWyciszajace(wpis) << "\n";
     } else if (stres.liczbaProbek < 2) {
         cout << "\n(Za mało danych o stresie w tym okresie cyklu - model jeszcze się uczy.)\n";
     } else {
         cout << "\nStres w tym okresie cyklu mieści się w Twojej normie - bez dodatkowej korekty.\n";
     }
+    cout << "\nWsparcie na dziś: " << faza->getWsparcieWyciszajace(wpis) << "\n";
     if (profil.getLiczbaCykliUczacych() == 0) {
         cout << "(Granice faz to na razie szacunek startowy. Po zakończeniu pierwszego cyklu model dopasuje się do Ciebie.)\n";
     }
@@ -297,9 +297,20 @@ int main() {
                 case 2: {
                     Kalendarz dzis = Kalendarz::dzisiaj();
                     Kalendarz data = pobierzDate("Data (Enter = dziś): ", dzis);
-                    const Cykl& cykl = historia.biezacyCykl();
+                    const Cykl* cyklPtr = nullptr;
+                    try {
+                        cyklPtr = &historia.znajdzCyklDlaDaty(data);
+                    } catch (const out_of_range&) {
+                        const Cykl& biezacy = historia.biezacyCykl();
+                        if (biezacy.czyMaDateStartu() && !(data < biezacy.getDataStartu())) {
+                            cyklPtr = &biezacy;
+                        } else {
+                            throw invalid_argument("Ta data jest przed początkiem bieżącego cyklu i nie występuje w historii");
+                        }
+                    }
+
+                    const Cykl& cykl = *cyklPtr;
                     int dzien = cykl.numerDniaDla(data);
-                    if (dzien < 1) throw invalid_argument("Ta data jest przed początkiem bieżącego cyklu");
 
                     // wpis z tego dnia, a jeśli go nie ma, neutralny wpis zastępczy
                     const WpisDziennika* istniejacy = cykl.znajdzWpis(dzien);
