@@ -63,7 +63,7 @@ Uruchomienie:
 
 - Przy pierwszym uruchomieniu (gdy nie ma jeszcze pliku `lunaria_dane.txt`) program poprosi o podanie daty początku bieżącego cyklu w formacie **`DD-MM-RRRR`**.
 - W menu głównym możesz wybrać opcję **`9`**, aby wczytać dane demonstracyjne i od razu przetestować działanie modelu adaptacyjnego, wpisów z dziennika oraz rekomendacji.
-  - Twoje dane zapisują się lokalnie w pliku `lunaria_dane.txt`. Aplikacja nie łączy się z Internetem i niczego nie wysyła.
+- Twoje dane zapisują się lokalnie w pliku `lunaria_dane.txt`. Aplikacja nie łączy się z Internetem i niczego nie wysyła.
 
 > Na Windowsie program korzysta z kodowania UTF-8 w konsoli (polskie znaki i emoji), dlatego najlepiej uruchamiać go w **Windows Terminal** lub **PowerShellu**.
 
@@ -151,7 +151,7 @@ Plik `lunaria_dane.txt` jest tekstowy, pola rozdzielone tabulatorami: wiersz `C`
 ```text
 .
 ├── README.md
-├── lunaria_uml.svg                diagram klas UML
+├── lunaria_uml.png                diagram klas UML
 └── src/
     ├── main.cpp                   interfejs konsolowy i menu
     ├── FazaCyklu.*                abstrakcyjna klasa bazowa faz
@@ -167,7 +167,7 @@ Plik `lunaria_dane.txt` jest tekstowy, pola rozdzielone tabulatorami: wiersz `C`
 ```
 
 ### Diagram klas UML
-![Diagram klas UML](lunaria_uml.svg)
+![Diagram klas UML](lunaria_uml.png)
 
 ## Uwagi
 
