@@ -167,8 +167,7 @@ Plik `lunaria_dane.txt` jest tekstowy, pola rozdzielone tabulatorami: wiersz `C`
 ```
 
 ### Diagram klas UML
-![Diagram klas UML](lunaria_uml.svg)
-
+![Diagram klas UML](lunaria_uml.png)
 ## Uwagi
 
 Część logiki kalendarzowej w `Kalendarz.cpp` (przeliczanie daty na liczbę dni i z powrotem) bazuje na algorytmach Howarda Hinnanta, udostępnionych na licencji MIT. Informacja o prawach autorskich znajduje się w komentarzu w kodzie.
